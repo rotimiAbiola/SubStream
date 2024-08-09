@@ -46,6 +46,13 @@ signal.signal(signal.SIGTERM, lambda signum, frame: cleanup())
 subdomain = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
 fqdn = f"{subdomain}.rtmdemos.name.ng"
 
+port_file_path = "/tmp/port.txt"  # Specify the path to port.txt
+if os.path.exists(port_file_path):
+    with open(port_file_path, "r") as file:
+        port = file.read().strip()
+else:
+    print("port.txt not found. Exiting.")
+
 # Nginx configuration content
 nginx_config = f"""
 server {{
@@ -53,7 +60,7 @@ server {{
     server_name {fqdn};
 
     location / {{
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:{port};
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
