@@ -19,7 +19,7 @@ Thats it your hosted server  is running.
 
 ## Client Side Handling
 On the `cli.sh` file remap <your-client-ip> to your actual ip or domain name
-send the file to your clients.
+and send the file to your clients.
 
 ```
 chmod +x cli.sh
