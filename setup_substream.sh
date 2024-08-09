@@ -125,6 +125,7 @@ subdomain="$1"
 # Remove the Nginx config files
 rm -f /etc/nginx/sites-available/"$subdomain"
 rm -f /etc/nginx/sites-enabled/"$subdomain"
+rm /tmp/port.txt
 
 # Reload Nginx to apply changes
 systemctl reload nginx
