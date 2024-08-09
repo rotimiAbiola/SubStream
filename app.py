@@ -19,6 +19,14 @@ def get_port():
     # Log that a request was received and the port found
     print(f"Request received! Available port: {port}")
 
+    directory = "/tmp"  # Specify the directory where you want to save port.txt
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    file_path = os.path.join(directory, "port.txt")
+    with open(file_path, "w") as file:
+        file.write(str(port))
+
     # Return the response with the port number included in the message
     return f"{port}", 200
 
