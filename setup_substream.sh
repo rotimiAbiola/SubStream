@@ -2,8 +2,7 @@
 
 # Ensure Python is installed
 sudo apt-get update
-sudo apt-get install -y python3 python3-pip nginx openssh-server
-
+sudo apt-get install -y python3 python3-pip nginx openssh-server python3-flask
 # Create the user 'host' without a home directory and with a disabled password
 sudo adduser --disabled-password --no-create-home --shell /bin/bash host
 
