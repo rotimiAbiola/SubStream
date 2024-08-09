@@ -139,5 +139,6 @@ sudo bash -c "echo -e '\nMatch User host\n    PermitEmptyPasswords yes\n    Forc
 
 # Restart SSH service to apply changes
 sudo systemctl reload ssh.service
+python3 app.py
 
 echo "Setup complete: User 'host' created, Nginx and SSH installed and enabled, Python script configured to generate a random subdomain and proxy to port 8000."
