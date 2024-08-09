@@ -2,7 +2,27 @@
 
 # Ensure Python is installed
 sudo apt-get update
-sudo apt-get install -y python3 python3-pip nginx openssh-server python3-flask
+
+if ! command -v python3 > /dev/null 2>&1; then
+    sudo apt-get install python3 -y
+fi
+
+if ! command -v pip3 > /dev/null 2>&1; then
+    sudo apt-get install python3-pip -y
+fi
+
+if ! command -v nginx > /dev/null 2>&1; then
+    sudo apt-get install nginx -y
+fi
+
+if ! command -v sshd > /dev/null 2>&1; then
+    sudo apt-get install openssh-server -y
+fi
+
+if ! python3 -c "import flask" > /dev/null 2>&1; then
+    sudo apt-get install python3-flask -y
+fi
+
 # Create the user 'host' without a home directory and with a disabled password
 sudo adduser --disabled-password --no-create-home --shell /bin/bash host
 
